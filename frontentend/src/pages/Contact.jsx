@@ -32,7 +32,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // সরাসরি ফর্মের এলিমেন্ট থেকে ডাটা নেওয়া হচ্ছে (কোনো স্টেট মিসম্যাচ হবে না)
+    // সরাসরি ফর্মের এলিমেন্ট থেকে ডাটা নেওয়া হচ্ছে (কোনো স্টেট মিসম্যাচ হবে না)
     const formData = new FormData(e.target);
     const data = {
       name: formData.get("name"),
@@ -42,7 +42,7 @@ export default function Contact() {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/contact', {
+      const response = await fetch('https://shafiq-suzon.onrender.com/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
