@@ -17,19 +17,19 @@ export default function Dashboard() {
 
   useEffect(() => {
     // Users Fetch
-    fetch('http://localhost:5000/users')
+    fetch('https://shafiq-suzon.onrender.com/users')
       .then(res => res.json())
       .then(data => setUsersList(data))
       .catch(err => console.error("Error fetching users:", err));
 
     // Messages Fetch
-    fetch('http://localhost:5000/contact-messages')
+    fetch('https://shafiq-suzon.onrender.com/contact-messages')
       .then(res => res.json())
       .then(data => setContactMessages(data))
       .catch(err => console.error("Error fetching messages:", err));
 
     // Projects Fetch
-    fetch('http://localhost:5000/projects')
+    fetch('https://shafiq-suzon.onrender.com/projects')
       .then(res => res.json())
       .then(data => setProjects(data))
       .catch(err => console.error("Error fetching projects:", err));
@@ -67,7 +67,7 @@ export default function Dashboard() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}`, { method: 'DELETE' })
+        fetch(`https://shafiq-suzon.onrender.com/users/${id}`, { method: 'DELETE' })
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {
@@ -113,7 +113,7 @@ export default function Dashboard() {
       if (result.isConfirmed) {
         const newRole = result.value;
 
-        fetch(`http://localhost:5000/users/role/${id}`, {
+        fetch(`https://shafiq-suzon.onrender.com/users/role/${id}`, {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ role: newRole })
@@ -155,7 +155,7 @@ export default function Dashboard() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/contact-messages/${id}`, { method: 'DELETE' })
+        fetch(`https://shafiq-suzon.onrender.com/contact-messages/${id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(data => {
           if (data.deletedCount > 0) {
@@ -199,7 +199,7 @@ export default function Dashboard() {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch('http://localhost:5000/projects', {
+        fetch('https://shafiq-suzon.onrender.com/projects', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(result.value)
@@ -228,7 +228,7 @@ export default function Dashboard() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/projects/${id}`, { method: 'DELETE' })
+        fetch(`https://shafiq-suzon.onrender.com/projects/${id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(data => {
           if (data.deletedCount > 0) {
@@ -411,7 +411,7 @@ export default function Dashboard() {
               <h2 className="text-lg font-bold text-gray-100 uppercase tracking-wide">User Management Center</h2>
             </div>
             
-            {/* 🟢 এখানে নতুন ফিল্টার ড্রপডাউন যোগ করা হয়েছে 🟢 */}
+            {/* 🟢 এখানে নতুন ফিল্টার ড্রপডাউন যোগ করা হয়েছে 🟢 */}
             <select 
               value={selectedRole} 
               onChange={(e) => setSelectedRole(e.target.value)}

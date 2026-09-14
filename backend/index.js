@@ -8,10 +8,18 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+// 🟢 CORS সেটআপ (এখানে Vercel এবং Localhost অ্যাড করা হয়েছে) 🟢
+app.use(cors({
+  origin: [
+    "https://frontentend.vercel.app", 
+    "http://localhost:5173"
+  ],
+  credentials: true
+}));
+
 app.use(express.json());
 
-// MongoDB Atlas কানেকশন (এখন এটি সিকিউর করা হয়েছে)
+// MongoDB Atlas কানেকশন (এখন এটি সিকিউর করা হয়েছে)
 const uri = process.env.MONGODB_URI;
 
 mongoose.connect(uri)
