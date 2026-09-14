@@ -1,0 +1,1 @@
+const uri = "mongodb+srv://suzon:swad2019@suzon.e5swrmn.mongodb.net/?appName=suzon";
